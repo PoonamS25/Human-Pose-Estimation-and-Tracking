@@ -4,10 +4,20 @@
 import cv2
 import mediapipe as mp
 import numpy as np
+import pafy
+import youtube_dl
+
+
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
+
 # VIDEO FEED
-cap = cv2.VideoCapture(0)
+get_url = "https://www.youtube.com/watch?v=pXS-fSPWpk8"
+    #get_url = "https://www.youtube.com/watch?v=-d_iBRRVlVE"
+path = pafy.new(get_url).streams[0]
+cap = cv2.VideoCapture(path.url)
+#cap = cv2.VideoCapture('squat_test1.avi')
+#cap = cv2.VideoCapture(0)
 
 # Curl counter variables
 counter = 0 
